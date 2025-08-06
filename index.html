@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--loading starts-->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-circle">
+                <svg class="building-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M6.5 10h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm4-6h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm7-8h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1z" />
+                    <path d="M19 17h1v1h-1v-1zm-1-14h-4v2H9V3H5v18h14V17z" />
+                    <path d="M13 8h-1v1h1V8zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1z" />
+                </svg>
+            </div>
+            <div class="loading-ring"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
+    <script>
+        // Show loading screen initially, then hide after 3 seconds
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const loadingScreen = document.getElementById('loadingScreen');
+                const mainContent = document.getElementById('mainContent');
+
+                // Hide loading screen
+                loadingScreen.classList.add('hidden');
+
+                // Show main content
+                setTimeout(function () {
+                    mainContent.classList.add('visible');
+                }, 250); // Small delay for smooth transition
+
+            }, 3000); // 3 seconds delay
+        });
+    </script>
+    <!--loading ends-->
+    <!--navbar starts-->
+    <!-- Top Info Bar -->
+    <div class="top-bar" id="topBar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <span>+(123) 1234-567-8901</span>
+                <span>info@domain.com</span>
+                <span>Mon - Sat 8:00 - 17:30, Sunday - CLOSED</span>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Email"></a>
+                <a href="#" title="Facebook"></a>
+                <a href="#" title="LinkedIn"></a>
+                <a href="#" title="Website"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                Construction
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item has-dropdown" id="blogItem">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <div class="dropdown">
+                        <a href="blog.html" class="dropdown-item">Blog</a>
+                        <a href="blogDetails.html" class="dropdown-item">Blog Details</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown" id="pagesItem">
+                    <a href="#" class="nav-link">Pages</a>
+                    <div class="dropdown">
+                        <a href="elements.html" class="dropdown-item">Element</a>
+                        <a href="projectsDetails.html" class="dropdown-item">Projects Details</a>
+                        <a href="servicesDetails.html" class="dropdown-item">Services Details</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="contact-btn">CONTACT NOW</a>
+                </li>
+            </ul>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navbar = document.getElementById('navbar');
+        const topBar = document.getElementById('topBar');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Mobile dropdown toggle function
+        function setupMobileDropdown(itemId) {
+            const item = document.getElementById(itemId);
+            const navLink = item.querySelector('.nav-link');
+
+            navLink.addEventListener('click', (e) => {
+                // Only prevent default and toggle dropdown on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+
+                    // Close other dropdowns
+                    document.querySelectorAll('.nav-item.has-dropdown').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('dropdown-open');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    item.classList.toggle('dropdown-open');
+                }
+            });
+        }
+
+        // Setup mobile dropdowns for Blog and Pages
+        setupMobileDropdown('blogItem');
+        setupMobileDropdown('pagesItem');
+
+        // Scroll behavior
+        let lastScrollTop = 0;
+        const scrollThreshold = 50;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Hide/show top bar and adjust navbar
+            if (scrollTop > scrollThreshold) {
+                topBar.classList.add('hidden');
+                navbar.classList.add('scrolled');
+            } else {
+                topBar.classList.remove('hidden');
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                // Close all dropdowns
+                document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+                    item.classList.remove('dropdown-open');
+                });
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+                    item.classList.remove('dropdown-open');
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    <!--navbar ends-->
+    <!--background image and text starts-->
+    <div class="hero-section">
+        <!-- Construction site background -->
+        <div class="construction-bg"></div>
+
+        <!-- Tower cranes -->
+        <div class="crane crane-1"></div>
+        <div class="crane crane-2"></div>
+        <div class="crane crane-3"></div>
+
+
+
+        <!-- Main content -->
+        <div class="content-overlay">
+            <div class="service-label">HAND CAR WASH AND DETAILING SERVICE</div>
+
+            <h1 class="main-title">
+                <span class="title-advanced">ADVANCED</span>
+                <span class="title-construction">CONSTRUCTION</span>
+            </h1>
+
+            <button class="services-button" onclick="showServices()">OUR SERVICES</button>
+        </div>
+    </div>
+
+    <script>
+        function showServices() {
+            // You can customize this to navigate to services page or show modal
+            alert('Our Construction Services:\n\n• Residential Construction\n• Commercial Buildings\n• Industrial Projects\n• Infrastructure Development\n• Renovation & Remodeling\n• Project Management\n• Architectural Planning\n\nContact us for a free consultation!');
+        }
+
+        // Dynamic particle generation - removed
+        function generateParticles() {
+            // Removed particle generation
+        }
+
+        // Start effects after load
+        window.addEventListener('load', () => {
+            // Removed particle generation
+        });
+
+        // Removed parallax effect
+    </script>
+    <!--background image and text ends-->
+    <!--3 images starts-->
+    <section class="engineering-services-wrapper" aria-labelledby="engineering-services-heading">
+        <header class="services-intro-banner">
+            <span class="services-watermark-text" aria-hidden="true">SERVICES</span>
+            <h2 id="engineering-services-heading" class="services-heading-text">OUR SERVICES</h2>
+        </header>
+
+        <div class="engineering-portfolio-grid">
+            <article class="engineering-showcase-card" tabindex="0">
+                <div class="showcase-visual-wrapper">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fc28fa93-3532-486c-96e6-19965d1d4083.png"
+                        alt="Architectural hands reviewing building blueprint with magnifying glass and digital tablet"
+                        class="showcase-featured-image"
+                        onerror="this.style.background='#ddd'; this.alt='Architectural hands reviewing building blueprint with magnifying glass and tablet';" />
+                </div>
+                <h3 class="showcase-service-title">Engineering techniques & implementation</h3>
+                <div class="showcase-action-footer" tabindex="0"
+                    aria-label="Read more about Engineering techniques and implementation">
+                    <span>Read More</span>
+                    <span class="action-expand-icon" aria-hidden="true">+</span>
+                </div>
+            </article>
+
+            <article class="engineering-showcase-card" tabindex="0">
+                <div class="showcase-visual-wrapper">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8a3f5f52-48b4-4331-abe7-0c3a6582cb6e.png"
+                        alt="Worker wearing overalls using a power drill on a woodworking project"
+                        class="showcase-featured-image"
+                        onerror="this.style.background='#ddd'; this.alt='Worker using power drill on woodworking';" />
+                </div>
+                <h3 class="showcase-service-title">Engineering techniques & implementation</h3>
+                <div class="showcase-action-footer" tabindex="0"
+                    aria-label="Read more about Engineering techniques and implementation">
+                    <span>Read More</span>
+                    <span class="action-expand-icon" aria-hidden="true">+</span>
+                </div>
+            </article>
+
+            <article class="engineering-showcase-card" tabindex="0">
+                <div class="showcase-visual-wrapper">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f0b1302f-4523-4e73-a072-1f100d58ac92.png"
+                        alt="Close-up view of bricklayer applying mortar to bricks for sturdy wall construction"
+                        class="showcase-featured-image"
+                        onerror="this.style.background='#ddd'; this.alt='Bricklayer applying mortar on brick wall';" />
+                </div>
+                <h3 class="showcase-service-title">Engineering techniques & implementation</h3>
+                <div class="showcase-action-footer" tabindex="0"
+                    aria-label="Read more about Engineering techniques and implementation">
+                    <span>Read More</span>
+                    <span class="action-expand-icon" aria-hidden="true">+</span>
+                </div>
+            </article>
+        </div>
+    </section>
+      <!--3 images endss-->
+       <!--1 image and para starts-->
+    <div class="who-we-are-section">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h2>WHO WE ARE</h2>
+                <p>Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit
+                    anim laborumuis au dolor in voluptate velit cillu.</p>
+                <p>Mollit anim laborum.Dvcuis aute iruxvfg dhjkolonr in re voluptate velit esscillumlore eu quite nulla
+                    parihatur. Excghcepteur sfwsignjnt occa cupidatat non aute iruxvfg dhjnulpadeserunt mollitemnh
+                    incididnt ut.o5tu layjobore mollit anim.</p>
+                <button class="read-more-btn">READ MORE</button>
+            </div>
+            <div class="image-section">
+                <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/gallery/safe_in.png"
+                    alt="Craftsman working in workshop" class="craftsman-image">
+                <div class="since-badge">
+                    <div class="year">1994</div>
+                    <div class="since-text">SINCE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--1 image and para ends-->
+    <!--6 images starts-->
+    <!--6 image starts-->
+    <div class="construction-showcase-wrapper">
+        <div class="construction-showcase-container">
+            <div class="showcase-header">
+                <h1 class="showcase-main-title">OUR PROJECTS</h1>
+                <div class="showcase-filter-tabs">
+                    <button class="showcase-tab-button active">Show All</button>
+                    <button class="showcase-tab-button">Interior</button>
+                    <button class="showcase-tab-button">Recent</button>
+                    <button class="showcase-tab-button">
+                        Building
+                    </button>
+                    <button class="showcase-tab-button">Park</button>
+                </div>
+            </div>
+
+            <div class="construction-portfolio-grid">
+                <div class="construction-project-card">
+                    <div class="project-visual-container construction-project-1"></div>
+                    <div class="project-details-section">
+                        <h3 class="project-name-heading">Floride Chemicals Factory</h3>
+                    </div>
+                </div>
+
+                <div class="construction-project-card">
+                    <div class="project-visual-container construction-project-2"></div>
+                    <div class="project-details-section">
+                        <h3 class="project-name-heading">Floride Chemicals Factory</h3>
+                    </div>
+                </div>
+
+                <div class="construction-project-card">
+                    <div class="project-visual-container construction-project-3"></div>
+                    <div class="project-details-section">
+                        <h3 class="project-name-heading">Floride Chemicals Factory</h3>
+                    </div>
+                </div>
+
+                <div class="construction-project-card">
+                    <div class="project-visual-container construction-project-4"></div>
+                    <div class="project-details-section">
+                        <h3 class="project-name-heading">Floride Chemicals Factory</h3>
+                    </div>
+                </div>
+
+                <div class="construction-project-card">
+                    <div class="project-visual-container construction-project-5"></div>
+                    <div class="project-details-section">
+                        <h3 class="project-name-heading">Floride Chemicals Factory</h3>
+                    </div>
+                </div>
+
+                <div class="construction-project-card">
+                    <div class="project-visual-container construction-project-6"></div>
+                    <div class="project-details-section">
+                        <h3 class="project-name-heading">Floride Chemicals Factory</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Add interactive functionality to filter tabs
+            const showcaseTabButtons = document.querySelectorAll('.showcase-tab-button');
+            const constructionProjectCards = document.querySelectorAll('.construction-project-card');
+
+            showcaseTabButtons.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    showcaseTabButtons.forEach(t => t.classList.remove('active'));
+
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+
+                    // Add a subtle animation to project cards
+                    constructionProjectCards.forEach((card, index) => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.4s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                });
+            });
+
+            // Add hover effects and interactions
+            constructionProjectCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+
+                card.addEventListener('click', () => {
+                    // Add a click animation
+                    card.style.transform = 'translateY(-8px) scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = 'translateY(-8px) scale(1.02)';
+                    }, 150);
+                });
+            });
+        </script>
+        <!--6 image ends-->
+    </div>
+    <!--6 images ends-->
+    <!--double tag starts-->
+      <section class="primary-banner-wrapper">
+        <div class="main-content-container">
+            <h1 class="primary-heading-text">Let's Talk With Us</h1>
+            <p class="introductory-paragraph">
+                Ready to transform your business with cutting-edge solutions? We're here to help you navigate the digital landscape and achieve exceptional results through innovative strategies and personalized service.
+            </p>
+            <button class="action-button-primary">Get Started</button>
+        </div>
+    </section>
+
+    <section class="metrics-display-section">
+        <div class="metrics-grid-layout">
+            <div class="individual-metric-item">
+                <div class="metric-category-label">Equipment</div>
+                <div class="metric-numerical-value">34</div>
+                <div class="metric-description-text">Industrial Tools</div>
+            </div>
+            <div class="individual-metric-item">
+                <div class="metric-category-label">Equipment</div>
+                <div class="metric-numerical-value">76</div>
+                <div class="metric-description-text">Precision Tools</div>
+            </div>
+            <div class="individual-metric-item">
+                <div class="metric-category-label">Equipment</div>
+                <div class="metric-numerical-value">08</div>
+                <div class="metric-description-text">Specialty Tools</div>
+            </div>
+        </div>
+    </section>
+        <!--double tag ends-->
+        <!--gallery data starts-->
+    <div class="testimonial-section">
+        <div class="testimonial-header">
+            <h2 class="testimonial-title">TESTIMONIAL</h2>
+            <div class="quote-marks">"</div>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">
+                        Mollit anim laborum. Duis aute irure dolor in re voluptate velit esse cillum ore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non aute irure dolor in re voluptate velit esse cillum ore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non aute irure dolor proident.
+                    </p>
+                    <div class="testimonial-author">Jessya Inn</div>
+                    <div class="testimonial-role">Co Founder</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <p class="testimonial-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-role">CEO & Founder</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <p class="testimonial-text">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    </p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">Marketing Director</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <p class="testimonial-text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                    </p>
+                    <div class="testimonial-author">David Rodriguez</div>
+                    <div class="testimonial-role">Product Manager</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-arrow" id="prevBtn">‹</button>
+            <div class="nav-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+            </div>
+            <button class="nav-arrow" id="nextBtn">›</button>
+        </div>
+    </div>
+
+    <script>
+        class TestimonialSlider {
+            constructor() {
+                this.track = document.getElementById('testimonialTrack');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.dots = document.querySelectorAll('.dot');
+                this.currentSlide = 0;
+                this.totalSlides = 4;
+                
+                this.init();
+            }
+            
+            init() {
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                // Auto-play functionality (optional)
+                this.startAutoPlay();
+            }
+            
+            updateSlider() {
+                const translateX = -this.currentSlide * 100;
+                this.track.style.transform = `translateX(${translateX}%)`;
+                this.updateDots();
+            }
+            
+            updateDots() {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlider();
+                this.resetAutoPlay();
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlider();
+                this.resetAutoPlay();
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlider();
+                this.resetAutoPlay();
+            }
+            
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 5000);
+            }
+            
+            resetAutoPlay() {
+                clearInterval(this.autoPlayInterval);
+                this.startAutoPlay();
+            }
+        }
+        
+        // Initialize the slider when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new TestimonialSlider();
+        });
+        
+        // Add smooth hover effects
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.classList.contains('nav-arrow')) {
+                e.target.style.transform = 'scale(1.1)';
+            }
+        });
+        
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.classList.contains('nav-arrow')) {
+                e.target.style.transform = 'scale(1)';
+            }
+        });
+    </script>
+    <!--gallery data starts-->
+         <!--our team starts-->
+        <div class="team-section">
+            <h2 class="section-title">OUR TEAM</h2>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/team/team2.png"
+                        alt="Ethan Welch" class="member-image">
+                    <div class="member-info">
+                        <div class="member-role">UX Designer</div>
+                        <h3 class="member-name">Ethan Welch</h3>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop&crop=face"
+                        alt="Ethan Welch" class="member-image">
+                    <div class="member-info">
+                        <div class="member-role">UX Designer</div>
+                        <h3 class="member-name">Ethan Welch</h3>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/team/team1.png"
+                        alt="Ethan Welch" class="member-image">
+                    <div class="member-info">
+                        <div class="member-role">UX Designer</div>
+                        <h3 class="member-name">Ethan Welch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--our team ends-->
+        <!--footer startss-->
+        <div class="main-wrapper">
+            <div class="moving-lines">
+                <div class="animated-stripe"></div>
+                <div class="animated-stripe"></div>
+                <div class="animated-stripe"></div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="content-grid">
+                    <div class="info-block">
+                        <div class="brand-section">
+                            <div class="logo-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11.03L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11.03C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
+                                </svg>
+                            </div>
+                            <h3>Construction</h3>
+                        </div>
+                        <p class="brand-text">
+                            Building excellence through innovation and craftsmanship. We deliver quality construction
+                            solutions that stand the test of time.
+                        </p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Quick Links</h4>
+                        <ul class="nav-list">
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Contact Info</h4>
+                        <div class="contact-details">
+                            <div>198 West 21th Street, Suite 721</div>
+                            <div>New York, NY 10010</div>
+                            <div style="margin-top: 15px;">Phone: +1 (555) 123-4567</div>
+                            <div>Cell: +1 (555) 987-6543</div>
+                            <div>Email: info@construction.com</div>
+                        </div>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Newsletter</h4>
+                        <div class="subscription-area">
+                            <p style="color: #aaa; font-size: 14px; margin-bottom: 5px;">Stay updated with our latest
+                                projects</p>
+                            <div class="email-form">
+                                <input type="email" placeholder="Enter your email">
+                                <button type="submit">SUBSCRIBE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright-bar">
+                    Copyright ©2025 All rights reserved | This template is made with <span class="love-icon">♥</span> by
+                    <a href="#colorlib">Colorlib</a>
+                </div>
+            </footer>
+        </div>
+
+        <button class="top-button" id="backToTop">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+            </svg>
+        </button>
+
+        <script>
+            const scrollUpButton = document.getElementById('backToTop');
+
+            // Smooth scroll to top when clicked
+            scrollUpButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Email subscription functionality
+            const emailFormContainer = document.querySelector('.email-form');
+            const userEmailInput = emailFormContainer.querySelector('input');
+            const submitButton = emailFormContainer.querySelector('button');
+
+            submitButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const userEmail = userEmailInput.value.trim();
+
+                if (userEmail && userEmail.includes('@')) {
+                    submitButton.textContent = 'SUBSCRIBED!';
+                    submitButton.style.background = '#28a745';
+                    userEmailInput.value = '';
+
+                    setTimeout(() => {
+                        submitButton.textContent = 'SUBSCRIBE';
+                        submitButton.style.background = '#ff6b35';
+                    }, 2000);
+                } else {
+                    submitButton.textContent = 'INVALID EMAIL';
+                    submitButton.style.background = '#dc3545';
+
+                    setTimeout(() => {
+                        submitButton.textContent = 'SUBSCRIBE';
+                        submitButton.style.background = '#ff6b35';
+                    }, 2000);
+                }
+            });
+        </script>
+        <!--footer ends-->
+</body>
+
+</html>

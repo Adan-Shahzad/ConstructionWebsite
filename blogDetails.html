@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Blog</title>
+    <style>
+        
+/*first div starts*/
+.hero-section {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(64, 87, 151, 0.8), rgba(91, 111, 178, 0.8)), 
+                        url('data:image/jpeg;base64,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') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .breadcrumb {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .breadcrumb::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -15px;
+            width: 60px;
+            height: 3px;
+            background-color: #ff6b35;
+        }
+
+        .breadcrumb .separator {
+            margin: 0 8px;
+            color: #ff6b35;
+        }
+
+        /* Overlay for better text readability */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 300px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+                margin-bottom: 15px;
+            }
+
+            .breadcrumb {
+                font-size: 0.9rem;
+            }
+
+            .breadcrumb::before {
+                width: 40px;
+                top: -12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 250px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hero-section {
+                height: 500px;
+            }
+
+            .hero-title {
+                font-size: 5rem;
+            }
+
+            .breadcrumb {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Animation */
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+/*first div ends*/
+/*footer starts*/
+.main-wrapper {
+    margin-top: 100px; /* Add space from content above */
+    margin-bottom: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    overflow: hidden;
+    position: relative;
+    clear: both; /* Ensure footer clears any floated elements */
+}
+
+.moving-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.animated-stripe {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #666, transparent);
+    animation: slideAcross 3s linear infinite;
+}
+
+@keyframes slideAcross {
+    0% {
+        left: -100%;
+        width: 100px;
+    }
+
+    50% {
+        width: 200px;
+    }
+
+    100% {
+        left: 100%;
+        width: 100px;
+    }
+}
+
+.animated-stripe:nth-child(1) {
+    top: 0;
+    animation-delay: 0s;
+}
+
+.animated-stripe:nth-child(2) {
+    top: 1px;
+    animation-delay: 1s;
+}
+
+.animated-stripe:nth-child(3) {
+    top: 2px;
+    animation-delay: 2s;
+}
+
+.main-footer {
+    padding: 60px 20px 40px;
+    color: #fff;
+    position: relative; /* Ensure proper positioning */
+    z-index: 1; /* Ensure footer is above other elements */
+}
+
+.content-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 40px;
+    align-items: start;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.brand-section .logo-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(45deg, #ff6b35, #ff8c42);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.brand-section .logo-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+.brand-section h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.brand-text {
+    color: #aaa;
+    line-height: 1.6;
+    font-size: 14px;
+    max-width: 280px;
+}
+
+.info-block h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 12px;
+}
+
+.nav-list a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #ff6b35;
+}
+
+.contact-details {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-details div {
+    margin-bottom: 8px;
+}
+
+.subscription-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 250px;
+}
+
+.email-form {
+    display: flex;
+    gap: 0;
+}
+
+.subscription-area input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px 0 0 4px;
+    min-width: 0;
+}
+
+.subscription-area input::placeholder {
+    color: #888;
+}
+
+.subscription-area button {
+    padding: 12px 20px;
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.subscription-area button:hover {
+    background: #e55a2b;
+}
+
+.top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #ff6b35, #ff8c42);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.top-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    transition: transform 0.3s ease;
+}
+
+.top-button:hover svg {
+    transform: translateY(-2px);
+}
+
+.copyright-bar {
+    border-top: 1px solid #333;
+    margin-top: 40px;
+    padding-top: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+}
+
+.copyright-bar a {
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+.copyright-bar .love-icon {
+    color: #ff6b35;
+    margin: 0 3px;
+}
+
+/* Ensure main content doesn't overlap with footer */
+#mainContent {
+    min-height: calc(100vh - 200px); /* Adjust based on navbar height */
+    padding-bottom: 50px; /* Add padding to separate from footer */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .main-footer {
+        padding: 50px 30px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: left;
+    }
+
+    .main-footer {
+        padding: 40px 20px 30px;
+    }
+
+    .subscription-area {
+        min-width: auto;
+    }
+
+    .email-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .subscription-area input,
+    .subscription-area button {
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .top-button {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .top-button svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .main-wrapper {
+        margin-top: 30px; /* Reduce margin on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 35px 15px 25px;
+    }
+
+    .content-grid {
+        gap: 30px;
+    }
+
+    .brand-section h3 {
+        font-size: 20px;
+    }
+
+    .info-block h4 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .brand-text {
+        font-size: 13px;
+    }
+
+    .nav-list a {
+        font-size: 13px;
+    }
+
+    .contact-details {
+        font-size: 13px;
+    }
+
+    .subscription-area input,
+    .subscription-area button {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .copyright-bar {
+        font-size: 12px;
+        padding-top: 25px;
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 320px) {
+    .brand-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .brand-section .logo-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .brand-section .logo-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/*footer ends*/
+
+/*loading starts*/
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-content.visible {
+    opacity: 1;
+}
+
+.loading-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-ring {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top: 2px solid #ff6b35;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.building-icon {
+    width: 28px;
+    height: 28px;
+    fill: #ff6b35;
+}
+
+.loading-text {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/*loading ends*/
+/*navbar starts*/
+/* Top Info Bar */
+.top-bar {
+    font-family: 'Arial', sans-serif;
+    background: rgba(12, 56, 100, 0.95);
+    color: white;
+    padding: 8px 0;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.top-bar.hidden {
+    transform: translateY(-100%);
+}
+
+.top-bar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.contact-info {
+    display: flex;
+    gap: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff6b35;
+}
+
+.social-links a::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.social-links a[href="#"]:nth-child(1)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+}
+
+.social-links a[href="#"]:nth-child(2)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
+}
+
+.social-links a[href="#"]:nth-child(3)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+}
+
+.social-links a[href="#"]:nth-child(4)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2 0-.68.06-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08C6.03 6.34 7.57 5.06 9.4 4.44 8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56-1.83-.63-3.37-1.9-4.32-3.56M4.26 14c-.16-.64-.26-1.31-.26-2s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8c-.96-1.65-2.49-2.93-4.33-3.56C15.19 5.55 15.65 6.75 16 8h2.92M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z'/%3E%3C/svg%3E");
+}
+
+/* Main Navbar */
+.navbar {
+    background: rgba(12, 56, 100, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    top: 0;
+    background: rgba(12, 56, 100, 0.95);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 80px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff6b35;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: #ff6b35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: white;
+}
+
+.logo-icon::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M13.85 22.25h-3.7c-.74 0-1.35-.54-1.45-1.27l-.1-1.31c-.32-.13-.63-.29-.93-.47l-1.25.38c-.7.21-1.45-.11-1.74-.73l-1.85-3.19c-.29-.62-.16-1.39.31-1.86l1.06-.91c-.05-.33-.05-.66 0-.99l-1.06-.91c-.47-.47-.6-1.24-.31-1.86L4.78 5.84c.29-.62 1.04-.94 1.74-.73l1.25.38c.3-.18.61-.34.93-.47l.1-1.31c.1-.73.71-1.27 1.45-1.27h3.7c.74 0 1.35.54 1.45 1.27l.1 1.31c.32.13.63.29.93.47l1.25-.38c.7-.21 1.45.11 1.74.73l1.85 3.19c.29.62.16 1.39-.31 1.86l-1.06.91c.05.33.05.66 0 .99l1.06.91c.47.47.6 1.24.31 1.86l-1.85 3.19c-.29.62-1.04.94-1.74.73l-1.25-.38c-.3.18-.61.34-.93.47l-.1 1.31c-.1.73-.71 1.27-1.45 1.27zm-2.45-1.5h1.2l.1-1.31c.04-.4.34-.73.73-.81.63-.13 1.24-.36 1.82-.68.36-.2.81-.15 1.12.12l1.25.38.6-1.04-1.06-.91c-.32-.27-.44-.72-.31-1.12.21-.65.21-1.32 0-1.97-.13-.4-.01-.85.31-1.12l1.06-.91-.6-1.04-1.25.38c-.31.27-.76.32-1.12.12-.58-.32-1.19-.55-1.82-.68-.39-.08-.69-.41-.73-.81L12.6 3.5h-1.2l-.1 1.31c-.04.4-.34.73-.73.81-.63.13-1.24.36-1.82.68-.36.2-.81.15-1.12-.12L6.38 5.8l-.6 1.04 1.06.91c.32.27.44.72.31 1.12-.21.65-.21 1.32 0 1.97.13.4.01.85-.31 1.12l-1.06.91.6 1.04 1.25-.38c.31-.27.76-.32 1.12-.12.58.32 1.19.55 1.82.68.39.08.69.41.73.81l.1 1.31zm1.45-6.25c-1.24 0-2.25-1.01-2.25-2.25S10.61 10 11.85 10s2.25 1.01 2.25 2.25-1.01 2.25-2.25 2.25z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #ff6b35;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #ff6b35;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-item.active .nav-link::after {
+    width: 80%;
+}
+
+/* Dropdown arrow for items with dropdowns */
+.nav-item.has-dropdown .nav-link::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Mobile-specific dropdown arrow positioning */
+@media (max-width: 768px) {
+    .nav-item.has-dropdown .nav-link {
+        justify-content: space-between;
+    }
+
+    .nav-item.has-dropdown .nav-link::before {
+        margin-left: 0;
+        order: 2;
+    }
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #ff6b35;
+    border-left-color: #ff6b35;
+}
+
+/* Contact Button */
+.contact-btn {
+    background: #ff6b35;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.contact-btn:hover {
+    background: #e55a2b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Mobile Menu Toggle */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .top-bar-content {
+        padding: 0 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 120px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 120px);
+        background: rgba(52, 73, 93, 0.98);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .navbar.scrolled .nav-menu {
+        top: 80px;
+        height: calc(100vh - 80px);
+    }
+
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-bottom: none;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Mobile dropdown arrow rotation */
+    .nav-item.has-dropdown.dropdown-open .nav-link::before {
+        transform: rotate(180deg);
+    }
+
+    .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(44, 62, 80, 0.9);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-item.dropdown-open .dropdown {
+        max-height: 200px;
+    }
+
+    .dropdown-item {
+        color: #ccc;
+        padding: 10px 40px;
+        border-left: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-item:hover {
+        background: rgba(255, 107, 53, 0.1);
+        color: #ff6b35;
+    }
+
+    .contact-btn {
+        margin: 20px;
+        text-align: center;
+        display: block;
+    }
+
+    .nav-container {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo-icon::before {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Contact Button Responsive Fix - Add this to your existing CSS */
+
+/* Tablet/Small Desktop - Prevent collapsing at 800-900px */
+@media (max-width: 1024px) {
+    .contact-btn {
+        margin-left: 15px;
+        padding: 10px 20px;
+        font-size: 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-btn {
+        margin-left: 10px;
+        padding: 10px 18px;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+    }
+}
+
+@media (max-width: 820px) {
+    .contact-btn {
+        margin-left: 8px;
+        padding: 8px 16px;
+        font-size: 12px;
+        min-width: 120px;
+    }
+}
+
+/*navbar ended*/
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+            padding: 0;
+        }
+        .container1 {
+            width: 80%;
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 40px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .main-content {
+            width: 66.66%;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+        .sidebar {
+            width: 33.33%;
+            box-sizing: border-box;
+        }
+        .blog-post img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .blog-post h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .meta-info {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        .meta-info a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+        .blog-post p {
+            margin-bottom: 20px;
+        }
+        .quote {
+            background: #f8f8f8;
+            padding: 20px;
+            border-left: 5px solid #ff6f61;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .tags, .share {
+            margin: 20px 0;
+        }
+        .tags a, .share a {
+            color: #ff6f61;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .author-box {
+            display: flex;
+            align-items: center;
+            background: #f8f8f8;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .author-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .comments {
+            margin-top: 40px;
+        }
+        .comment {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .comment img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .comment-content h5 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .comment-content span {
+            font-size: 12px;
+            color: #999;
+        }
+        .comment-form {
+            margin-top: 40px;
+        }
+        .comment-form h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .comment-form input, .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .comment-form button {
+            background: #ff6f61;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sidebar h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .search-form {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .search-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-form button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .categories, .recent-posts, .tags-list {
+            margin-bottom: 30px;
+        }
+        .categories ul, .recent-posts ul, .tags-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .categories ul li, .recent-posts ul li, .tags-list ul li {
+            margin-bottom: 10px;
+        }
+        .categories ul li a, .recent-posts ul li a, .tags-list ul li a {
+            color: #666;
+            text-decoration: none;
+        }
+        .recent-posts ul li {
+            display: flex;
+            align-items: center;
+        }
+        .recent-posts ul li img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        .tags-list ul li {
+            display: inline-block;
+            margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            .main-content, .sidebar {
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!--loading starts-->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-container">
+                <div class="loading-circle">
+                    <svg class="building-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M6.5 10h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm4-6h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm7-8h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1z" />
+                        <path d="M19 17h1v1h-1v-1zm-1-14h-4v2H9V3H5v18h14V17z" />
+                        <path d="M13 8h-1v1h1V8zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1zm0 2h-1v1h1v-1z" />
+                    </svg>
+                </div>
+                <div class="loading-ring"></div>
+                <div class="loading-text">Loading...</div>
+            </div>
+        </div>
+    <script>
+        // Show loading screen initially, then hide after 3 seconds
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const loadingScreen = document.getElementById('loadingScreen');
+                const mainContent = document.getElementById('mainContent');
+
+                // Hide loading screen
+                loadingScreen.classList.add('hidden');
+
+                // Show main content
+                setTimeout(function () {
+                    mainContent.classList.add('visible');
+                }, 250); // Small delay for smooth transition
+
+            }, 3000); // 3 seconds delay
+        });
+    </script>
+    <!--loading ends-->
+    <!--navbar starts-->
+    <!-- Top Info Bar -->
+    <div class="top-bar" id="topBar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <span>+(123) 1234-567-8901</span>
+                <span>info@domain.com</span>
+                <span>Mon - Sat 8:00 - 17:30, Sunday - CLOSED</span>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Email"></a>
+                <a href="#" title="Facebook"></a>
+                <a href="#" title="LinkedIn"></a>
+                <a href="#" title="Website"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                Construction
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li >
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item active" class="nav-item has-dropdown" id="blogItem">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <div class="dropdown">
+                        <a href="blog.html" class="dropdown-item">Blog</a>
+                        <a href="blogDetails.html" class="dropdown-item">Blog Details</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown" id="pagesItem">
+                    <a href="#" class="nav-link">Pages</a>
+                    <div class="dropdown">
+                        <a href="elements.html" class="dropdown-item">Element</a>
+                        <a href="projectsDetails.html" class="dropdown-item">Projects Details</a>
+                        <a href="servicesDetails.html" class="dropdown-item">Services Details</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="contact-btn">CONTACT NOW</a>
+                </li>
+            </ul>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navbar = document.getElementById('navbar');
+        const topBar = document.getElementById('topBar');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Mobile dropdown toggle function
+        function setupMobileDropdown(itemId) {
+            const item = document.getElementById(itemId);
+            const navLink = item.querySelector('.nav-link');
+
+            navLink.addEventListener('click', (e) => {
+                // Only prevent default and toggle dropdown on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+
+                    // Close other dropdowns
+                    document.querySelectorAll('.nav-item.has-dropdown').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('dropdown-open');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    item.classList.toggle('dropdown-open');
+                }
+            });
+        }
+
+        // Setup mobile dropdowns for Blog and Pages
+        setupMobileDropdown('blogItem');
+        setupMobileDropdown('pagesItem');
+
+        // Scroll behavior
+        let lastScrollTop = 0;
+        const scrollThreshold = 50;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Hide/show top bar and adjust navbar
+            if (scrollTop > scrollThreshold) {
+                topBar.classList.add('hidden');
+                navbar.classList.add('scrolled');
+            } else {
+                topBar.classList.remove('hidden');
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                // Close all dropdowns
+                document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+                    item.classList.remove('dropdown-open');
+                });
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+                    item.classList.remove('dropdown-open');
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    <!--navbar ends-->
+    <!--first div starts-->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">SINGLE BLOG</h1>
+            <div class="breadcrumb">
+                HOME<span class="separator">/</span>SINGLE BLOG
+            </div>
+        </div>
+    </div>
+    <!--first div ends-->
+    <!--blog detail-->
+    <div class="container1">
+        <div class="main-content">
+            <div class="blog-post">
+                <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/blog/single_blog_1.png" alt="Blog Image">
+                <h2>Construction of a Building</h2>
+                <div class="meta-info">
+                    <span>By <a href="#">Admin</a> | 12 Comments | 20, Sep 2020</span>
+                </div>
+                <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                <div class="quote">
+                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.</p>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                <div class="tags">
+                    <strong>Tags:</strong> <a href="#">Construction</a>, <a href="#">Building</a>, <a href="#">Company</a>
+                </div>
+                <div class="share">
+                    <strong>Share:</strong> <a href="#">Facebook</a>, <a href="#">Twitter</a>, <a href="#">Google</a>
+                </div>
+                <div class="author-box">
+                    <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/blog/author.png" alt="Author">
+                    <div>
+                        <h4>John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="comments">
+                    <h3>Comments</h3>
+                    <div class="comment">
+                        <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/comment/comment_1.png" alt="Commenter">
+                        <div class="comment-content">
+                            <h5>John Doe</h5>
+                            <span>20, Sep 2020</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/comment/comment_2.png" alt="Commenter">
+                        <div class="comment-content">
+                            <h5>Jane Roe</h5>
+                            <span>20, Sep 2020</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <h3>Leave a Comment</h3>
+                    <form>
+                        <input type="text" placeholder="Name">
+                        <input type="email" placeholder="Email">
+                        <textarea placeholder="Comment"></textarea>
+                        <button type="submit">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="search-form">
+                <input type="text" placeholder="Search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <div class="categories">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Construction (10)</a></li>
+                    <li><a href="#">Building (15)</a></li>
+                    <li><a href="#">Company (20)</a></li>
+                    <li><a href="#">Architecture (8)</a></li>
+                </ul>
+            </div>
+            <div class="recent-posts">
+                <h3>Recent Posts</h3>
+                <ul>
+                    <li>
+                        <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/post/post_8.png" alt="Recent Post">
+                        <div>
+                            <a href="#">Construction of a Building</a>
+                            <span>20, Sep 2020</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://preview.colorlib.com/theme/constructioncompany/assets/img/post/post_5.png" alt="Recent Post">
+                        <div>
+                            <a href="#">New Project Launch</a>
+                            <span>18, Sep 2020</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="tags-list">
+                <h3>Tags</h3>
+                <ul>
+                    <li><a href="#">Construction</a></li>
+                    <li><a href="#">Building</a></li>
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Architecture</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!--footer starts-->
+    <div class="main-wrapper">
+        <div class="moving-lines">
+            <div class="animated-stripe"></div>
+            <div class="animated-stripe"></div>
+            <div class="animated-stripe"></div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="content-grid">
+                <div class="info-block">
+                    <div class="brand-section">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11.03L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11.03C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
+                            </svg>
+                        </div>
+                        <h3>Construction</h3>
+                    </div>
+                    <p class="brand-text">
+                        Building excellence through innovation and craftsmanship. We deliver quality construction
+                        solutions that stand the test of time.
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <h4>Quick Links</h4>
+                    <ul class="nav-list">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <h4>Contact Info</h4>
+                    <div class="contact-details">
+                        <div>198 West 21th Street, Suite 721</div>
+                        <div>New York, NY 10010</div>
+                        <div style="margin-top: 15px;">Phone: +1 (555) 123-4567</div>
+                        <div>Cell: +1 (555) 987-6543</div>
+                        <div>Email: info@construction.com</div>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <h4>Newsletter</h4>
+                    <div class="subscription-area">
+                        <p style="color: #aaa; font-size: 14px; margin-bottom: 5px;">Stay updated with our latest
+                            projects</p>
+                        <div class="email-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                Copyright ©2025 All rights reserved | This template is made with <span class="love-icon">♥</span> by <a
+                    href="#colorlib">Colorlib</a>
+            </div>
+        </footer>
+    </div>
+
+    <button class="top-button" id="backToTop">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </button>
+
+    <script>
+        const scrollUpButton = document.getElementById('backToTop');
+
+        // Smooth scroll to top when clicked
+        scrollUpButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Email subscription functionality
+        const emailFormContainer = document.querySelector('.email-form');
+        const userEmailInput = emailFormContainer.querySelector('input');
+        const submitButton = emailFormContainer.querySelector('button');
+
+        submitButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const userEmail = userEmailInput.value.trim();
+
+            if (userEmail && userEmail.includes('@')) {
+                submitButton.textContent = 'SUBSCRIBED!';
+                submitButton.style.background = '#28a745';
+                userEmailInput.value = '';
+
+                setTimeout(() => {
+                    submitButton.textContent = 'SUBSCRIBE';
+                    submitButton.style.background = '#ff6b35';
+                }, 2000);
+            } else {
+                submitButton.textContent = 'INVALID EMAIL';
+                submitButton.style.background = '#dc3545';
+
+                setTimeout(() => {
+                    submitButton.textContent = 'SUBSCRIBE';
+                    submitButton.style.background = '#ff6b35';
+                }, 2000);
+            }
+        });
+    </script>
+    <!--footer ends-->
+</body>
+</html>
